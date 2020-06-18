@@ -5,6 +5,8 @@ import {signup} from '../services/auth'
 import {addNewErrorToSignUp} from "../actions/auth";
 import {setTitle} from "../actions/appHead";
 import LoadingSpinner from "./other/LoadingSpinner";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import {Link} from "react-router-dom";
 
 const SignUpPage = (props) => {
 
@@ -49,7 +51,12 @@ const SignUpPage = (props) => {
         props.signup(date)
     }
     return (<div className="container-center page-container">
+
         <div className="form-container">
+            <Link to="/signin"> <div className="signup-header">
+                <ArrowBackIosIcon style={{ fontSize: "20px" }} />
+                <b>Back</b>
+            </div></Link>
             <h1 className="title">News-X</h1>
             <h1 className="from-title">Sign Up</h1>
             <div className="inputs-container">

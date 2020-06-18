@@ -6,6 +6,11 @@
   height: 100%;
 }
 
+.signup-header{
+  display: flex;
+  align-items: center;
+}
+
 .form-container {
   border-radius: 1em;
   border: $color_primary solid 0.19em;
@@ -15,6 +20,9 @@
   color: white;
   background-color: $color_accent_light;
   width: 25%;
+  a{
+    color: white;
+  }
 }
 
 .title {
