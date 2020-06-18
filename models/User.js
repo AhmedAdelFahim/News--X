@@ -68,19 +68,23 @@ userSchema.methods.generateAuthToken = function () {
 }
 
 userSchema.pre('save', async function (next) {
+    console.log("pre")
     const user = this;
     if (!user.isModified('password')) return next();
     try {
         const hash = await bcrypt.hash(user.password, saltRounds)
+        console.log("pre", hash)
         user.password = hash
         next()
     } catch (e) {
+        console.log("pre", e)
         next(e)
     }
 });
 
 
 userSchema.post('save', function (error, doc, next) {
+    console.log("post",error)
     if (error.name === 'MongoError' && error.code === 11000) {
         if (Object.keys(error.keyPattern)[0] === 'email') {
             next({
