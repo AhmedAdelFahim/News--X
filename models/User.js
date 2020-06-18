@@ -56,7 +56,6 @@ const userSchema = new mongoose.Schema({
     timestamps: true,
 });
 
-userSchema.plugin(uniqueArrayPlugin);
 
 userSchema.methods.generateAuthToken = function () {
     // Generate an auth token for the user
@@ -81,6 +80,7 @@ userSchema.pre('save', async function (next) {
 
 
 userSchema.post('save', function (error, doc, next) {
+    console.log('post', error)
     if (error.name === 'MongoError' && error.code === 11000) {
         if (Object.keys(error.keyPattern)[0] === 'email') {
             next({
