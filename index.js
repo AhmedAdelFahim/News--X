@@ -22,7 +22,6 @@ app.use(helmet.contentSecurityPolicy({
         defaultSrc: ["'self'"],
         imgSrc:["'self'"],
         styleSrc:["'self'",'https://fonts.googleapis.com'],
-        scriptSrc: ["'self'",'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU='],
         fontSrc:["'self'",'https://fonts.gstatic.com']
     }
 }))
