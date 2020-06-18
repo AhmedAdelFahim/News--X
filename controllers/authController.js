@@ -8,6 +8,7 @@ const signup = async (req, res) => {
         const token = user.generateAuthToken()
         return res.status(201).send({
                 userId:user._id,
+                name:user.fullName,
                 accessToken: token,
                 accessTokenCreationDate: Date.now(),
                 accessTokenTTL: 604800 //7 days in seconds [168 hours]
