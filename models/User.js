@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const uniqueArrayPlugin = require('mongoose-unique-array');
 const saltRounds = 10;
 
 const userSchema = new mongoose.Schema({
