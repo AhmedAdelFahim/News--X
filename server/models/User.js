@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const saltRounds = 10;
 
+
 const userSchema = new mongoose.Schema({
     fullName: {
         type: String,
@@ -46,7 +47,7 @@ const userSchema = new mongoose.Schema({
             }
         }
     },
-    sources: [String],
+    sources: {type:[String], default:[]}
 }, {
     timestamps: true,
 });
@@ -75,7 +76,6 @@ userSchema.pre('save', async function (next) {
 
 
 userSchema.post('save', function (error, doc, next) {
-    console.log('post', error)
     if (error.name === 'MongoError' && error.code === 11000) {
         if (Object.keys(error.keyPattern)[0] === 'email') {
             next({
@@ -83,6 +83,8 @@ userSchema.post('save', function (error, doc, next) {
                     email: 'email must be unique',
                 }
             });
+        } else {
+            next(error);
         }
     } else {
         const keys = Object.keys(error.errors);

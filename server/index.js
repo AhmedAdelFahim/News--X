@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-// const cors = require("cors");
+const cors = require("cors");
 const helmet = require('helmet')
 const path = require('path')
 require('./db/mongooes');
@@ -18,22 +18,22 @@ app.use(helmet());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 app.use(helmet.permittedCrossDomainPolicies());
 
-// let corsOptions = {
-//     origin: `http://localhost:${process.env.CLIENT_PORT}`
-// };
+let corsOptions = {
+    origin: `http://localhost:${process.env.CLIENT_PORT}`
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
-
+console.log(process.env)
 // middleware that logs requests method and the url requested.
-// app.use((req, res, next) => {
-//     let date = new Date().toISOString().split('T');
-//     console.log(`\n\n${date[0]} ${date[1]}`);
-//     console.log(`new request, its method: ${req.method}`);
-//     console.log(`the url requested: ${req.url}\n`);
-//     next();
-// });
+app.use((req, res, next) => {
+    let date = new Date().toISOString().split('T');
+    console.log(`\n\n${date[0]} ${date[1]}`);
+    console.log(`new request, its method: ${req.method}`);
+    console.log(`the url requested: ${req.url}\n`);
+    next();
+});
 
 app.use('/auth', authRouter)
 app.use('/users', userRouter)
