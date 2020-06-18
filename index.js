@@ -23,7 +23,7 @@ app.use(helmet.contentSecurityPolicy({
         imgSrc:["'self'"],
         styleSrc:["'self'",'https://fonts.googleapis.com'],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        fontSrc:["'self'"]
+        fontSrc:["'self'",'https://fonts.gstatic.com']
     }
 }))
 // let corsOptions = {
