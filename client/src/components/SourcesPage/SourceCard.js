@@ -35,7 +35,7 @@ const SourceCard = (props) => {
                 <p><b>Category: </b>{category}</p>
             </div>
             <div className="subscribe-container">
-                {(isSubscribeLoading || isUnsubscribeLoading) ? <LoadingSpinner/> :(isSourceSubscribed ?
+                {(isSubscribeLoading || isUnsubscribeLoading) ? <LoadingSpinner/> : (isSourceSubscribed ?
                     <button onClick={handleUnSubscribeClicked(props.userId, id)}>Unsubscribe</button> :
                     <button onClick={handleSubscribeClicked(props.userId, id)}>Subscribe</button>)}
             </div>

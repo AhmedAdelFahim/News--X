@@ -7,7 +7,7 @@ export const SIGNIN_ERROR = 'SIGNIN_ERROR';
 export const LOGOUT = 'LOGOUT';
 
 
-export const addNewErrorToSignUp = (key,message) => {
+export const addNewErrorToSignUp = (key, message) => {
     return {
         type: ADD_NEW_ERROR_SIGN_UP,
         key,

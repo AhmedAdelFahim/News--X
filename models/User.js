@@ -41,7 +41,6 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Password is required.'],
         validate: {
             validator: function (value) {
-                console.log(value)
                 if (!value.match(/^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,}$/)) {
                     throw new Error(`Password must be at least 8 symbols.\nPassword must have at least two uppercase letters.\nPassword must have at least one special case letter.\nPassword must have at least two digits.\nPassword must have at least three lowercase letters.\n`)
                 }
@@ -49,7 +48,7 @@ const userSchema = new mongoose.Schema({
         }
     },
     sources: {
-        type:[{
+        type: [{
             type: String,
         }],
     }
@@ -82,7 +81,6 @@ userSchema.pre('save', async function (next) {
 
 
 userSchema.post('save', function (error, doc, next) {
-    console.log("post",error)
     if (error.name === 'MongoError' && error.code === 11000) {
         if (Object.keys(error.keyPattern)[0] === 'email') {
             next({

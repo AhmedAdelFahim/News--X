@@ -26,7 +26,7 @@ const Header = (props) => {
             </div>
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
                 <div className="user-profile-container">
-                    <img src="../../../img/user_avatar.jpg" alt="Avatar" className="avatar"/>
+                    {/*<img src="../../../img/user_avatar.jpg" alt="Avatar" className="avatar"/>*/}
                     <a><p className="user-name">{props.name}</p></a>
                 </div>
 

@@ -16,19 +16,19 @@ const getAllSources = async (req, res) => {
         })
         const user = await User.findById(req.userId)
         const userSources = user.sources;
-        if(!result.data || result.data.status !== 'ok'){
-            return res.status(500).send({message:'internal server error'})
+        if (!result.data || result.data.status !== 'ok') {
+            return res.status(500).send({message: 'internal server error'})
         }
         pages.hasNext = result.data.sources.length > (page + 1) * limit;
         pages.pageNumber = page + 1
-        const finalResult = result.data.sources.slice(page*limit,(page*limit)+limit)
+        const finalResult = result.data.sources.slice(page * limit, (page * limit) + limit)
         finalResult.map((source) => {
             source.isSourceSubscribed = userSources.includes(source.id)
             return source
         })
         return res.status(200).send({sources: finalResult, pages})
     } catch (e) {
-        return res.status(500).send({message:'internal server error'})
+        return res.status(500).send({message: 'internal server error'})
     }
 }
 

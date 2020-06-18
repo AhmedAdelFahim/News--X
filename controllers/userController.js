@@ -7,13 +7,13 @@ const subscribeSource = async (req, res) => {
     try {
         const user = await User.findById(id)
         if (!user) {
-            return res.status(404).send({message:'not found'});
+            return res.status(404).send({message: 'not found'});
         }
         user.sources.push(sourceId);
         await user.save();
         res.status(200).send({sourceId})
     } catch (e) {
-        return res.status(500).send({message:'internal server error'})
+        return res.status(500).send({message: 'internal server error'})
     }
 
 }
@@ -23,13 +23,13 @@ const unsubscribeSource = async (req, res) => {
     try {
         const user = await User.findById(id);
         if (!user) {
-            return res.status(404).send({message:'not found'});
+            return res.status(404).send({message: 'not found'});
         }
         user.sources = user.sources.filter((source) => source !== sourceId)
         await user.save();
         res.status(200).send({sourceId})
     } catch (e) {
-        return res.status(500).send({message:'internal server error'})
+        return res.status(500).send({message: 'internal server error'})
     }
 
 }
@@ -43,7 +43,7 @@ const getAllNews = async (req, res) => {
     try {
         const user = await User.findById(userId)
         if (!user) {
-            return res.status(404).send({message:'not found'});
+            return res.status(404).send({message: 'not found'});
         }
         const sourcesQuery = user.sources.reduce((acc, source) => {
             if (acc.length > 1) {
@@ -56,13 +56,13 @@ const getAllNews = async (req, res) => {
             method: 'get'
         })
         if (!result.data && result.data.status !== 'ok') {
-            return res.status(500).send({message:'internal server error'});
+            return res.status(500).send({message: 'internal server error'});
         }
         pages.pageNumber = page
-        pages.hasNext = !!(result.data.totalResults && ( (Number(page) + 1) * 20 <= Math.min(100,result.data.totalResults)))
+        pages.hasNext = !!(result.data.totalResults && ((Number(page) + 1) * 20 <= Math.min(100, result.data.totalResults)))
         res.status(200).send({news: result.data.articles, pages})
     } catch (e) {
-        return res.status(500).send({message:'internal server error'})
+        return res.status(500).send({message: 'internal server error'})
     }
 
 }

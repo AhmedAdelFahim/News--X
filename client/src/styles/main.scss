@@ -6,14 +6,13 @@ $color_accent_light: #424242;
 $color_accent_lighter: #f2efef;
 $font_primary: 'Metal Mania', cursive;
 
-body, html{
+body, html {
   height: 100%;
   width: 100%;
   background-color: $color_accent;
-  //font-family: 'Metal Mania', cursive;
 }
 
-#root{
+#root {
   height: 100%;
   width: 100%;
 
@@ -39,18 +38,19 @@ body, html{
   }
 }
 
-.container-horizontal{
+.container-horizontal {
   display: flex;
   height: 100%;
   flex-direction: column;
 }
 
-.empty-container{
+.empty-container {
   display: flex;
   flex-direction: column;
   color: white;
   text-align: center;
-  a{
+
+  a {
     color: white;
   }
 }
@@ -62,5 +62,4 @@ body, html{
   justify-content: center;
   margin-top: 1em;
   margin-bottom: 1em;
-  //position: fixed;
 }

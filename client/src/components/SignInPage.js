@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import '../styles/registration.scss'
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import ErrorMessage from "./other/ErrorMessage";
 import {signin} from "../services/auth";
 import {connect} from "react-redux";
@@ -11,16 +11,16 @@ const SignInPage = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    useEffect(()=>{
+    useEffect(() => {
         props.dispatch(setTitle('NEWS-X::Login'))
-    },[])
+    }, [])
     const handleChangeEmail = (e) => {
-        const {target:{value}} = e
+        const {target: {value}} = e
         setEmail(value)
     }
 
     const handleChangePassword = (e) => {
-        const {target:{value}} = e
+        const {target: {value}} = e
         setPassword(value)
     }
 
@@ -32,20 +32,23 @@ const SignInPage = (props) => {
         }
         props.signin(data)
     }
-    return(<div className="container-center page-container">
+    return (<div className="container-center page-container">
         <div className="form-container">
             <h1 className="title">News-X</h1>
             <h1 className="from-title">Login</h1>
             <div className="inputs-container">
                 <div>
-                    <input className="custom-input" type="email" placeholder="Email" value={email} onChange={handleChangeEmail}/>
+                    <input className="custom-input" type="email" placeholder="Email" value={email}
+                           onChange={handleChangeEmail}/>
                 </div>
                 <div>
-                    <input className="custom-input" type="password" placeholder="Password" value={password} onChange={handleChangePassword}/>
+                    <input className="custom-input" type="password" placeholder="Password" value={password}
+                           onChange={handleChangePassword}/>
                 </div>
                 <div>
-                    {props.errors.error && <ErrorMessage message={props.errors.error }/>}
-                    <button onClick={handleSubmit} className="submit-btn" disabled={props.isLoadingSignin}>LOGIN</button>
+                    {props.errors.error && <ErrorMessage message={props.errors.error}/>}
+                    <button onClick={handleSubmit} className="submit-btn" disabled={props.isLoadingSignin}>LOGIN
+                    </button>
                 </div>
                 <p>Or - <Link to="/signup">Create New Account</Link></p>
             </div>

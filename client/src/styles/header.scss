@@ -1,4 +1,5 @@
 @import "src/styles/main";
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -8,7 +9,6 @@ ul {
   margin-block-start: 0;
   margin-block-end: 0;
   display: flex;
-  //justify-content: center;
   align-items: center;
 }
 
@@ -28,7 +28,7 @@ ul {
   text-decoration: none;
 }
 
-.nav-list{
+.nav-list {
   #app-name-header {
     color: white;
     margin-top: 0;
@@ -37,22 +37,21 @@ ul {
   }
 }
 
-.nav-list a:hover , .logout-list a:hover{
+.nav-list a:hover, .logout-list a:hover {
   background-color: $color_primary;
 }
 
-.logout-container{
+.logout-container {
   display: flex;
   justify-content: flex-end;
   margin-left: 0.75em;
   cursor: pointer;
 
 }
-.user-profile-container{
+
+.user-profile-container {
   display: flex;
   flex-direction: row;
-  //margin-top: 0.5em;
-  //margin-bottom: 0.5em;
   align-items: center;
   margin-left: 2em;
 }
@@ -64,7 +63,7 @@ ul {
   border-radius: 50%;
 }
 
-.user-name{
+.user-name {
   margin-top: 0;
   margin-bottom: 0;
   color: white;
@@ -75,7 +74,8 @@ input:focus {
   outline: none;
   border: 0.126em solid $color_primary_light;
 }
-.header{
+
+.header {
   background-color: black;
   display: flex;
   flex-direction: row;

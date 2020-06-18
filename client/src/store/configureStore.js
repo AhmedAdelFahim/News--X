@@ -1,8 +1,9 @@
-import { createStore, combineReducers} from 'redux';
+import {createStore, combineReducers} from 'redux';
 import authReducer from "../reducers/auth";
 import sourcesReducer from "../reducers/sources";
 import newsReducer from "../reducers/news";
 import appHeadReducer from "../reducers/appHead";
+
 export default () => {
     const store = createStore(combineReducers({
             authReducer,
@@ -10,7 +11,6 @@ export default () => {
             newsReducer,
             appHeadReducer
         })
-    // ,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
     return store;
 };

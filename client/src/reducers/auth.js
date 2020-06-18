@@ -12,11 +12,11 @@ const defaultData = {
     isAuthUser: !!localStorage.getItem("user"),
     token: (JSON.parse(localStorage.getItem("user")) && JSON.parse(localStorage.getItem("user")).accessToken) || '',
     isLoadingSignup: false,
-    signupErrors:{},
+    signupErrors: {},
     isLoadingSignin: false,
-    signinErrors:{},
-    userId:(JSON.parse(localStorage.getItem("user")) && JSON.parse(localStorage.getItem("user")).userId) || '',
-    name:(JSON.parse(localStorage.getItem("user")) && JSON.parse(localStorage.getItem("user")).name) || ''
+    signinErrors: {},
+    userId: (JSON.parse(localStorage.getItem("user")) && JSON.parse(localStorage.getItem("user")).userId) || '',
+    name: (JSON.parse(localStorage.getItem("user")) && JSON.parse(localStorage.getItem("user")).name) || ''
 }
 
 export default (state = defaultData, action) => {
@@ -24,7 +24,7 @@ export default (state = defaultData, action) => {
         case ADD_NEW_ERROR_SIGN_UP:
             return {
                 ...state,
-                signupErrors: {...state.signupErrors,[action.key] :action.message}
+                signupErrors: {...state.signupErrors, [action.key]: action.message}
             }
         case SIGNUP_LOADING:
             return {
@@ -69,7 +69,7 @@ export default (state = defaultData, action) => {
                 isAuthUser: false,
                 token: '',
                 userId: '',
-                name:'',
+                name: '',
             }
         default:
             return state

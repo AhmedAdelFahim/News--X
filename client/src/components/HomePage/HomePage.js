@@ -36,7 +36,8 @@ const HomePage = (props) => {
                     return <NewsCard key={news.title} {...news}/>
                 })}
             </div>
-            <Pagination page={Number(props.pages.pageNumber)} hasNext={props.pages.hasNext} hasPrevious={props.pages.hasPrevious} setPage={handleChangePage} disabled={props.isLoading}/>
+            <Pagination page={Number(props.pages.pageNumber)} hasNext={props.pages.hasNext}
+                        hasPrevious={props.pages.hasPrevious} setPage={handleChangePage} disabled={props.isLoading}/>
         </div>)}
     </div>)
 }

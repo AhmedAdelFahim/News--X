@@ -11,23 +11,23 @@ import EmptyPage from "./EmptyPage";
 import LoadingSpinner from "../other/LoadingSpinner";
 
 const SourcesPage = (props) => {
-    useEffect(()=>{
+    useEffect(() => {
         props.getAllSources(`page=${props.currentPage}`)
-    },[props.currentPage])
+    }, [props.currentPage])
 
-    useEffect(()=>{
+    useEffect(() => {
         props.dispatch(setTitle('Sources'))
         return () => {
-            props.dispatch(resetStore() )
+            props.dispatch(resetStore())
         }
-    },[])
+    }, [])
     const handleChangePage = (page) => {
         props.dispatch(setCurrentPage(page))
     }
-    return(<div className="container-horizontal page-container">
+    return (<div className="container-horizontal page-container">
         <Header/>
         {props.isLoading && <LoadingSpinner isLoading={props.isLoading}/>}
-        {!props.isLoading && (props.sources.length === 0 ? <EmptyPage/> :<div className="content">
+        {!props.isLoading && (props.sources.length === 0 ? <EmptyPage/> : <div className="content">
             <div className="cards-container">
                 {props.sources.map((source) => <SourceCard key={source.id} {...source}/>)}
             </div>

@@ -13,6 +13,5 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb://${DB_HOST}:${DB_PORT}/${D
 }, (err) => {
     if (!err) {
         console.log("Started connection to mongo");
-    }
-    else console.log(err);
+    } else console.log(err);
 });

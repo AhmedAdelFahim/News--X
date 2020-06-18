@@ -1,8 +1,7 @@
 @import "main";
+
 .center {
   text-align: center;
-  //position: sticky;
-  //bottom: 0;
 }
 
 .pagination {
@@ -25,4 +24,6 @@
   border: 1px solid $color_primary_light;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {
+  background-color: #ddd;
+}

@@ -87,7 +87,7 @@ export default (state = defaultData, action) => {
                 ...state,
                 isSubscribeLoading: false,
                 sources: state.sources.map((source) => {
-                    if(source.id === action.source){
+                    if (source.id === action.source) {
                         source.isSourceSubscribed = true;
                     }
                     return source
@@ -98,7 +98,7 @@ export default (state = defaultData, action) => {
                 ...state,
                 isUnsubscribeLoading: false,
                 sources: state.sources.map((source) => {
-                    if(source.id === action.source){
+                    if (source.id === action.source) {
                         source.isSourceSubscribed = false;
                     }
                     return source

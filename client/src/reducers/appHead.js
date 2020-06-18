@@ -1,7 +1,7 @@
 import {SET_TITLE} from "../actions/appHead";
 
 const defaultData = {
-    title:'NEWS-X'
+    title: 'NEWS-X'
 }
 
 export default (state = defaultData, action) => {
