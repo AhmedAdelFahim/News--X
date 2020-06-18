@@ -21,9 +21,9 @@ app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
         imgSrc:["'self'"],
-        styleSrc:["'self'"],
+        styleSrc:["'self'",'https://fonts.googleapis.com'],
         scriptSrc: ["'self'", "'unsafe-inline'"],
-        fontSrc:["'self'", 'fonts.googleapis.com']
+        fontSrc:["'self'"]
     }
 }))
 // let corsOptions = {
