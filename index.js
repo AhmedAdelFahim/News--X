@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 // const cors = require("cors");
+const helmet = require('helmet')
 const path = require('path')
 require('./db/mongooes');
 const authRouter = require('./routes/auth')
@@ -15,9 +16,7 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 
-app.disable('x-powered-by')
-app.use(xssFilter());
-app.use(nocache())
+app.use(helmet())
 
 // let corsOptions = {
 //     origin: `http://localhost:${process.env.CLIENT_PORT}`
