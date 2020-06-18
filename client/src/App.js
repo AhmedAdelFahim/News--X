@@ -24,7 +24,7 @@ function App() {
                     <HomePage/>
                 </AuthRoute>
                 <AuthRoute path='/sources' type="private">
-                    <SourcesPage/>
+                    {/*<SourcesPage/>*/}
                 </AuthRoute>
                 <AuthRoute path='/' type="guest">
                     <SignInPage/>
