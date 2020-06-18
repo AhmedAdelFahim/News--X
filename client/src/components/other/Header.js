@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React from "react";
 import {Link, withRouter} from "react-router-dom";
 import '../../styles/header.scss'
 import {logout} from "../../actions/auth";
@@ -20,7 +20,7 @@ const Header = (props) => {
                         <Link id="app-name-header" to="/home">NEWS-X</Link>
                     </li>
                     <li className="nav-list">
-                        <Link to="/sources">Sources</Link>
+                        <Link to="/sources_list">Sources</Link>
                     </li>
                 </ul>
             </div>

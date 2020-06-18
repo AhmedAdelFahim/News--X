@@ -23,8 +23,8 @@ function App() {
                 <AuthRoute path='/home' type="private">
                     <HomePage/>
                 </AuthRoute>
-                <AuthRoute path='/sources' type="private">
-                    {/*<SourcesPage/>*/}
+                <AuthRoute path='/sources_list' type="private">
+                    <SourcesPage/>
                 </AuthRoute>
                 <AuthRoute path='/' type="guest">
                     <SignInPage/>
