@@ -1,6 +1,7 @@
 import {getNewsSuccess, newsLoading, newsError} from "../actions/news";
 import axios from "axios";
 import authHeader from "./authHeader";
+import {logout} from "../actions/auth";
 
 export function getAllNews(dispatch) {
     return (query = '') => {
@@ -14,7 +15,10 @@ export function getAllNews(dispatch) {
                 dispatch(getNewsSuccess(response.data.news, response.data.pages))
             }
         }).catch((error) => {
-            if (error.response && error.response.data && error.response.data.message) {
+            if(error.response && error.response.status === 401) {
+                localStorage.removeItem('user')
+                dispatch(logout())
+            } else if (error.response && error.response.data && error.response.data.message) {
                 dispatch(newsError(error.response.data))
             } else {
                 dispatch(newsError({message: 'network error'}))

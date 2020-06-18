@@ -11,6 +11,7 @@ import {
 } from '../actions/sources';
 import authHeader from './authHeader'
 import axios from 'axios'
+import {logout} from "../actions/auth";
 
 export function getAllSources(dispatch) {
     return (query = '') => {
@@ -25,7 +26,10 @@ export function getAllSources(dispatch) {
 
             }
         }).catch((error) => {
-            if (error.response && error.response.data && error.response.data.message) {
+            if(error.response && error.response.status === 401) {
+                localStorage.removeItem('user')
+                dispatch(logout())
+            } else if (error.response && error.response.data && error.response.data.message) {
                 dispatch(sourceError(error.response.data))
             } else {
                 dispatch(sourceError({message: 'network error'}))
@@ -47,7 +51,10 @@ export function subscribeSource(dispatch) {
 
             }
         }).catch((error) => {
-            if (error.response && error.response.data && error.response.data.message) {
+            if(error.response && error.response.status === 401) {
+                localStorage.removeItem('user')
+                dispatch(logout())
+            } else if (error.response && error.response.data && error.response.data.message) {
                 dispatch(subscribeSourceError(error.response.data))
             } else {
                 dispatch(subscribeSourceError({message: 'network error'}))
@@ -69,7 +76,10 @@ export function unsubscribeSource(dispatch) {
 
             }
         }).catch((error) => {
-            if (error.response && error.response.data && error.response.data.message) {
+            if(error.response && error.response.status === 401) {
+                localStorage.removeItem('user')
+                dispatch(logout())
+            } else if (error.response && error.response.data && error.response.data.message) {
                 dispatch(unsubscribeSourceError(error.response.data))
             } else {
                 dispatch(unsubscribeSourceError({message: 'network error'}))
@@ -77,5 +87,3 @@ export function unsubscribeSource(dispatch) {
         })
     }
 }
-
-
