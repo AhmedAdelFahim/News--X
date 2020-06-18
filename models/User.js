@@ -75,7 +75,6 @@ userSchema.pre('save', async function (next) {
 
 
 userSchema.post('save', function (error, doc, next) {
-    console.log('post', error)
     if (error.name === 'MongoError' && error.code === 11000) {
         if (Object.keys(error.keyPattern)[0] === 'email') {
             next({
