@@ -3,12 +3,9 @@ const bcrypt = require('bcryptjs');
 const User = db.user;
 const signup = async (req, res) => {
     const {body:{fullName, password, email}} = req;
-        console.log(fullName)
     try {
         const user = await User.create({fullName, password,email});
-        console.log(user)
         const token = user.generateAuthToken()
-        console.log(token)
         return res.status(201).send({
                 userId:user._id,
                 accessToken: token,
@@ -16,7 +13,6 @@ const signup = async (req, res) => {
                 accessTokenTTL: 604800 //7 days in seconds [168 hours]
             })
     } catch (e) {
-        console.log(e)
         res.status(500).send(e)
     }
 }
@@ -43,7 +39,6 @@ const signin = async (req, res) => {
         })
 
     } catch (e) {
-        console.log(e)
         res.status(500).end()
     }
 }

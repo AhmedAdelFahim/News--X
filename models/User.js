@@ -51,9 +51,7 @@ const userSchema = new mongoose.Schema({
     sources: {
         type:[{
             type: String,
-            unique: true
         }],
-        default:[]
     }
 }, {
     timestamps: true,
@@ -71,16 +69,13 @@ userSchema.methods.generateAuthToken = function () {
 }
 
 userSchema.pre('save', async function (next) {
-    console.log("pre")
     const user = this;
     if (!user.isModified('password')) return next();
     try {
         const hash = await bcrypt.hash(user.password, saltRounds)
-        console.log("pre", hash)
         user.password = hash
         next()
     } catch (e) {
-        console.log("pre", e)
         next(e)
     }
 });
@@ -101,7 +96,6 @@ userSchema.post('save', function (error, doc, next) {
         const errors = keys.reduce((acc, key) => {
             return {
                 ...acc,
-                // [key.split('.')[key.split('.').length - 1]]:error.errors[key].properties.message
                 [key]: error.errors[key].properties.message
             }
         }, {})
