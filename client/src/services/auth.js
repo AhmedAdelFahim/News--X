@@ -23,7 +23,7 @@ export function signin(dispatch) {
         dispatch(signInLoading());
         axios({
             method: 'post',
-            url: `${process.env.REACT_APP_BACKEND_URL}/auth/users/signin`,
+            url: `/auth/users/signin`,
             data
         }).then((response) => {
             dispatch(authSuccess(response.data))
