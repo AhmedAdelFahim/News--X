@@ -17,7 +17,7 @@ const app = express();
 app.use(helmet());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 app.use(helmet.permittedCrossDomainPolicies());
-app.use(csp({
+app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ["'self'"],
         imgSrc:["'self'"],
