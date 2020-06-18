@@ -14,6 +14,7 @@ export function signup(dispatch) {
             if(error.response.data && error.response.data.errors){
                 dispatch(signupError(error.response.data.errors));
             }
+            dispatch(signupError({errors: {message:'network error'}}));
         })
     }
 };
@@ -23,7 +24,7 @@ export function signin(dispatch) {
         dispatch(signInLoading());
         axios({
             method: 'post',
-            url: `/auth/users/signin`,
+            url: `${process.env.REACT_APP_BACKEND_URL}/auth/users/signin`,
             data
         }).then((response) => {
             dispatch(authSuccess(response.data))
@@ -32,6 +33,7 @@ export function signin(dispatch) {
             if(error.response && error.response.data && error.response.data.error){
                 dispatch(signInError(error.response.data));
             }
+            dispatch(signInError({errors: {message:'network error'}}));
         })
     }
-};
+}
