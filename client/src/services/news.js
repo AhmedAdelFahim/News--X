@@ -16,8 +16,9 @@ export function getAllNews(dispatch) {
         }).catch((error) => {
             if(error.response && error.response.data && error.response.data.message) {
                 dispatch(newsError(error.response.data))
+            } else {
+                dispatch(newsError({message:'network error'}))
             }
-            dispatch(newsError({message:'network error'}))
         })
     }
 };

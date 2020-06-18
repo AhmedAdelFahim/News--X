@@ -27,11 +27,12 @@ export function getAllSources(dispatch) {
         }).catch((error) => {
             if (error.response && error.response.data && error.response.data.message) {
                 dispatch(sourceError(error.response.data))
+            } else {
+                dispatch(sourceError({message: 'network error'}))
             }
-            dispatch(sourceError({message: 'network error'}))
         })
     }
-};
+}
 
 export function subscribeSource(dispatch) {
     return (userId, sourceId) => {
@@ -48,11 +49,12 @@ export function subscribeSource(dispatch) {
         }).catch((error) => {
             if (error.response && error.response.data && error.response.data.message) {
                 dispatch(subscribeSourceError(error.response.data))
+            } else {
+                dispatch(subscribeSourceError({message: 'network error'}))
             }
-            dispatch(subscribeSourceError({message: 'network error'}))
         })
     }
-};
+}
 
 export function unsubscribeSource(dispatch) {
     return (userId, sourceId) => {
@@ -69,10 +71,11 @@ export function unsubscribeSource(dispatch) {
         }).catch((error) => {
             if (error.response && error.response.data && error.response.data.message) {
                 dispatch(unsubscribeSourceError(error.response.data))
+            } else {
+                dispatch(unsubscribeSourceError({message: 'network error'}))
             }
-            dispatch(unsubscribeSourceError({message: 'network error'}))
         })
     }
-};
+}
 
 

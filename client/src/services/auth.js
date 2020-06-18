@@ -13,8 +13,9 @@ export function signup(dispatch) {
         }).catch((error) => {
             if(error.response.data && error.response.data.errors){
                 dispatch(signupError(error.response.data.errors));
+            } else {
+                dispatch(signupError({errors: {message:'network error'}}));
             }
-            dispatch(signupError({errors: {message:'network error'}}));
         })
     }
 };
@@ -32,8 +33,9 @@ export function signin(dispatch) {
             console.log(error)
             if(error.response && error.response.data && error.response.data.error){
                 dispatch(signInError(error.response.data));
+            } else {
+                dispatch(signInError({errors: {message:'network error'}}));
             }
-            dispatch(signInError({errors: {message:'network error'}}));
         })
     }
 }

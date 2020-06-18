@@ -6,7 +6,9 @@ const signup = async (req, res) => {
         console.log(fullName)
     try {
         const user = await User.create({fullName, password,email});
+        console.log(user)
         const token = user.generateAuthToken()
+        console.log(token)
         return res.status(201).send({
                 userId:user._id,
                 accessToken: token,
