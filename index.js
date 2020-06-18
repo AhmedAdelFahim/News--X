@@ -17,14 +17,7 @@ const app = express();
 app.use(helmet());
 app.use(helmet.referrerPolicy({ policy: 'no-referrer' }));
 app.use(helmet.permittedCrossDomainPolicies());
-app.use(helmet.contentSecurityPolicy({
-    directives: {
-        defaultSrc: ["'self'"],
-        imgSrc:["'self'"],
-        styleSrc:["'self'",'https://fonts.googleapis.com'],
-        fontSrc:["'self'",'https://fonts.gstatic.com']
-    }
-}))
+
 // let corsOptions = {
 //     origin: `http://localhost:${process.env.CLIENT_PORT}`
 // };
