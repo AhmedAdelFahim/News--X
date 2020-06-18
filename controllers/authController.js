@@ -4,7 +4,7 @@ const User = db.user;
 const signup = async (req, res) => {
     const {body: {fullName, password, email}} = req;
     try {
-        const user = await User.create({fullName, password, email});
+        const user = await User.create({fullName, password, email,source:[]});
         const token = user.generateAuthToken()
         return res.status(201).send({
             userId: user._id,
