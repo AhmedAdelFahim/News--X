@@ -7,6 +7,8 @@ Project was created with:
 * Express
 * MongoDB
 
+## Documentation
+<a href="https://docs.google.com/document/d/1215h49NS9Nu5sHK22UmI_kkZx5bTSgDL8EB9nPWrhNk/edit?usp=sharing">API Documentation</a>
 ## Try News-X Localy
 ```
 $ git clone https://github.com/AhmedAdelFahim/News--X.git
