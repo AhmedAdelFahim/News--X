@@ -25,7 +25,6 @@ let corsOptions = {
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
-console.log(process.env)
 // middleware that logs requests method and the url requested.
 app.use((req, res, next) => {
     let date = new Date().toISOString().split('T');
