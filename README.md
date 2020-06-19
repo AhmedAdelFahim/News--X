@@ -7,6 +7,10 @@ Project was created with:
 * Express
 * MongoDB
 
+## Demo
+
+![Alt Text](./screenshots/news-x.gif)
+
 ## Try News-X Localy
 ```
 $ git clone https://github.com/AhmedAdelFahim/News--X.git
